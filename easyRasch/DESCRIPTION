@@ -25,4 +25,5 @@ Collate:
     'raschPlot.R'
     'raschInformation.R'
     'raschTestInformationCurve.R'
+    'easyRaschExample.R'
 RoxygenNote: 6.0.1
