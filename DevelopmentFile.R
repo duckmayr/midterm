@@ -2,7 +2,7 @@
 library(devtools)
 library(roxygen2)
 setwd('~/Rclass/midterm')
-current.code <- as.package('raschR')
+current.code <- as.package('easyRasch')
 load_all(current.code)
 document(current.code)
 check(current.code)

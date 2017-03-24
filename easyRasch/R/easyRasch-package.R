@@ -1,7 +1,7 @@
-#' squaresPack
+#' easyRasch
 #'
-#' The squaresPack package calculates sums and differences of squared values.  
-#' @name raschR
+#' The easyRasch package provides an S4 class and methods for Rasch models.  
+#' @name easyRasch
 #' @docType package
 #' @author  JB Duck-Mayr
 #' @importFrom graphics abline lines
