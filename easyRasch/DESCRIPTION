@@ -8,7 +8,10 @@ Depends:
     R (>= 3.0.0),
     lattice,
     stats,
-    graphics
+    graphics,
+    grDevices
+Imports:
+    methods
 License: GPL (>= 2)
 Suggests:
     devtools
