@@ -14,13 +14,14 @@
 #' @export
 setMethod(f='plot', signature='Rasch',
           definition=function(x, EAP=TRUE, together=TRUE){
+            mainText <- paste('Item Characteristic Curves for', x@name)
             xAxis <- seq(from=-3, to=3, by=0.1)
             probs <- sapply(xAxis, function(i){
               raschProbability(x, i)$questionProbabilities})
             if (together) {
               plot(NULL, xlim=c(-3, 3), ylim=c(0, 1), xlab=expression(theta),
                    ylab='Probability of Correct Answer',
-                   main=x@name)
+                   main=mainText)
               sapply(1:nrow(probs), function(y){
                 lines(x=xAxis, y=probs[y, ], col=y)
               })
@@ -43,9 +44,9 @@ setMethod(f='plot', signature='Rasch',
               sLabs <- paste0('Q', 1:nrow(probs))
               if (EAP){
                 xyplot(prob ~ theta|factor(question), plotData, type='l',
-                       xlab=expression(theta), main=x@name,
+                       xlab=expression(theta), main=mainText,
                        ylab='Probability of Correct Answer',
-                       strip=strip.custom(factor.levels=sLabs), auto.key=TRUE,
+                       strip=strip.custom(factor.levels=sLabs),
                        panel= function(...){
                          panel.abline(v=raschEAP(x), lty='dashed')
                          panel.xyplot(...)
@@ -53,10 +54,9 @@ setMethod(f='plot', signature='Rasch',
                 )
               } else {
                 xyplot(prob ~ theta|factor(question), plotData, type='l',
-                       xlab=expression(theta), main=x@name,
+                       xlab=expression(theta), main=mainText,
                        ylab='Probability of Correct Answer',
-                       strip=strip.custom(factor.levels=sLabs),
-                       auto.key=TRUE)
+                       strip=strip.custom(factor.levels=sLabs))
               }
             }
           }
