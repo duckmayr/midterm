@@ -3,10 +3,9 @@ Title: Rasch Models for R
 Version: 0.1
 Author: JB Duck-Mayr
 Maintainer: JB Duck-Mayr <j.duck-mayr@wustl.edu>
-Description: Provides R tools for the Rasch model
+Description: rashR provides R tools for the Rasch model.
 Depends:
     R (>= 3.0.0),
-    methods,
     lattice,
     stats,
     graphics

@@ -6,4 +6,5 @@
 #' @author  JB Duck-Mayr
 #' @importFrom graphics abline lines
 #' @importFrom stats dnorm integrate
+#' @importFrom lattice strip.custom xyplot
 NULL
