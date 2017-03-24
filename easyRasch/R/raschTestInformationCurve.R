@@ -5,7 +5,7 @@
 #'
 #' @param raschObj An object of class \code{Rasch}
 #' @param lower A numeric vector of length one giving the lowest theta value
-#' @param lower A numeric vector of length one giving the highest theta value
+#' @param upper A numeric vector of length one giving the highest theta value
 #'
 #' @author JB Duck-Mayr
 #' @seealso \code{\link{Rasch-class}}
