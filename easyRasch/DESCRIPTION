@@ -1,9 +1,9 @@
-Package: raschR
+Package: easyRasch
 Title: Rasch Models for R
 Version: 0.1
 Author: JB Duck-Mayr
 Maintainer: JB Duck-Mayr <j.duck-mayr@wustl.edu>
-Description: rashR provides R tools for the Rasch model.
+Description: easyRasch provides R tools for the Rasch model.
 Depends:
     R (>= 3.0.0),
     lattice,
@@ -13,7 +13,7 @@ License: GPL (>= 2)
 Suggests:
     devtools
 Collate:
-    'raschR-package.R'
+    'easyRasch-package.R'
     'Rasch-class.R'
     'raschProbability.R'
     'raschLikelihood.R'
