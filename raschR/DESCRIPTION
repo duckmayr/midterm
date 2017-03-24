@@ -1,0 +1,21 @@
+Package: raschR
+Title: Rasch Models for R
+Version: 0.1
+Author: JB Duck-Mayr
+Maintainer: JB Duck-Mayr <j.duck-mayr@wustl.edu>
+Description: Provides R tools for the Rasch model
+Depends:
+    R (>= 3.0.0),
+    methods,
+    lattice,
+    stats
+License: GPL (>= 2)
+Suggests:
+    devtools
+Collate:
+    'Rasch-class.R'
+    'raschProbability.R'
+    'raschLikelihood.R'
+    'raschPrior.R'
+    'raschEAP.R'
+    'raschPlot.R'

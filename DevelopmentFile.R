@@ -1,0 +1,10 @@
+## Package Development File ##
+library(devtools)
+library(roxygen2)
+setwd('~/Rclass/midterm')
+current.code <- as.package('raschR')
+load_all(current.code)
+document(current.code)
+check(current.code)
+install(pkg=current.code, local=TRUE)
+build(current.code, path=getwd())
