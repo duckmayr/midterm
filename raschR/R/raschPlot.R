@@ -21,19 +21,43 @@ setMethod(f='plot', signature='Rasch',
               plot(NULL, xlim=c(-3, 3), ylim=c(0, 1), xlab=expression(theta),
                    ylab='Probability of Correct Answer',
                    main=x@name)
-              apply(probs, 1, function(y) lines(x=xAxis, y=y))
+              sapply(1:nrow(probs), function(y){
+                lines(x=xAxis, y=probs[y, ], col=y)
+              })
+              legendText <- paste0('Q', 1:nrow(probs))
+              legendCols <- palette()[1:nrow(probs)]
+              legendLty <- 1
+              # apply(probs, 1, function(y) lines(x=xAxis, y=y, col=y))
               if (EAP) {
                 abline(v=raschEAP(x), lty=2)
+                legendText <- c(legendText, 'EAP')
+                legendCols <- c(legendCols, 'black')
+                legendLty <- c(rep(1, nrow(probs)), 2)
               }
+              legend('topleft', legend=legendText, bty='n', col=legendCols,
+                     lty=legendLty)
             } else {
               plotData <- data.frame(prob=as.vector(t(probs)),
                                      theta=rep(xAxis, nrow(probs)),
                                      question=rep(1:nrow(probs), each=61))
               sLabs <- paste0('Q', 1:nrow(probs))
-              xyplot(prob ~ theta|factor(question), plotData, type='l',
-                     xlab=expression(theta), main=x@name,
-                     ylab='Probability of Correct Answer',
-                     strip=strip.custom(factor.levels=sLabs))
+              if (EAP){
+                xyplot(prob ~ theta|factor(question), plotData, type='l',
+                       xlab=expression(theta), main=x@name,
+                       ylab='Probability of Correct Answer',
+                       strip=strip.custom(factor.levels=sLabs), auto.key=TRUE,
+                       panel= function(...){
+                         panel.abline(v=raschEAP(x), lty='dashed')
+                         panel.xyplot(...)
+                       }
+                )
+              } else {
+                xyplot(prob ~ theta|factor(question), plotData, type='l',
+                       xlab=expression(theta), main=x@name,
+                       ylab='Probability of Correct Answer',
+                       strip=strip.custom(factor.levels=sLabs),
+                       auto.key=TRUE)
+              }
             }
           }
 )
